@@ -1,16 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
 body {
-  margin-left: 1.5em;
+  margin: auto;
   background-color: black;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
   width: 15em;
+
+}
+.main {
+  position: relative;
+  top: 1em;
   text-align: center;
-  overflow: hidden
 }
 
-#blood {
-  transition: 2s;
+.form-div {
+  margin-top: 5em;
 }
 
 .name {
@@ -19,6 +27,7 @@ body {
 .small {
   font-size: 12px
 }
+
 .submit_name {
   width: 20em;
   text-align: inherit;
@@ -31,9 +40,11 @@ a {
 }
 
 footer{
+
   display: block;
-  position: relative;
-  top: 3em;
+  text-align: center;
+  position: fixed;
+  bottom: 3em;
 }
 footer a {
   margin-right: 1em;

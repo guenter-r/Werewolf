@@ -1,7 +1,7 @@
 {% extends 'template.html' %}
 
 {% block body %}
-<form action="{{ url_for('setPlayerNumber') }}" method="post">
+<form class='form-div' action="{{ url_for('setPlayerNumber') }}" method="post">
   <span>Number of players:</span><br>
   <input type="number" name='num' placeholder="Enter number">
   <input type="submit" value="Senden">

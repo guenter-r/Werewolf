@@ -2,16 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/master.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <title></title>
   </head>
   <body onload="setTimeout(blood, 2000)">
-    {% block body %}{% endblock %}
+    <div class="main">
+      {% block body %}{% endblock %}
+    </div>
   </body>
   <footer>
     <a href="{{ url_for('index') }}">Home</a>
     <a href="{{ url_for('setup') }}">Setup</a>
+    <a href="https://github.com/iconicious">Made with <img src="https://image.flaticon.com/icons/svg/148/148838.svg" style="width:12px"> </a>
     {% block script %}{% endblock %}
     </script>
   </footer>
