@@ -35,7 +35,10 @@ def get_data():
             file = open('no_of_players.txt')
             num = file.read()
             operator = werwolf.deduct()
-            return render_template('user.html', players = num, name = name, operator = operator)
+            if operator == 0:
+                return(render_template('error.html'))
+            else:
+                return render_template('user.html', players = num, name = name, operator = operator)
 
 
 

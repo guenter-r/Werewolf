@@ -38,7 +38,8 @@ def deduct():
             else:
                 num = random.randint(0,len(assign)-1)
                 assignment()
-
+    if sum(assign.values()) == 0:
+        return(0)
     ind = assignment()
     print(assign)
     with open('available.txt', 'w+') as b:
