@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/master.css">
+    <title></title>
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+  <footer>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('setup') }}">Setup</a>
+  </footer>
+</html>

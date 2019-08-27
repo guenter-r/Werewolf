@@ -1,0 +1,32 @@
+
+body {
+  margin-left: 1.5em;
+  background-color: black;
+  color: white;
+}
+
+.submit_name {
+  width: 20em;
+  text-align: center;
+  padding: 1em
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+footer{
+  display: block;
+  position: relative;
+  top: 3em;
+}
+footer a {
+  margin-right: 1em;
+}
+
+footer a:hover {
+  margin-right: 1em;
+  color: black;
+  background-color: white;
+}

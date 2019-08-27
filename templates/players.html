@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+
+
+{% block players %}
+<form action="{{ url_for('get_players') }}" method="post">
+  <span>Number of players:</span><br>
+  <input type="number" value="">
+  <input type="submit" value="Senden">
+</form>
+{% endblock %}
