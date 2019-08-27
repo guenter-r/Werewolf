@@ -33,7 +33,9 @@ body {
   text-align: inherit;
   padding: 1em
 }
-
+#blood {
+ transition: 2s; 
+}
 a {
   text-decoration: none;
   color: white;
