@@ -3,11 +3,25 @@ body {
   margin-left: 1.5em;
   background-color: black;
   color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 15em;
+  text-align: center;
+  overflow: hidden
 }
 
+#blood {
+  transition: 2s;
+}
+
+.name {
+  color: red;
+}
+.small {
+  font-size: 12px
+}
 .submit_name {
   width: 20em;
-  text-align: center;
+  text-align: inherit;
   padding: 1em
 }
 

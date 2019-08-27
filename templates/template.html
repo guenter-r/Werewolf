@@ -3,13 +3,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <title></title>
   </head>
-  <body>
+  <body onload="setTimeout(blood, 2000)">
     {% block body %}{% endblock %}
   </body>
   <footer>
     <a href="{{ url_for('index') }}">Home</a>
     <a href="{{ url_for('setup') }}">Setup</a>
+    {% block script %}{% endblock %}
+    </script>
   </footer>
 </html>

@@ -1,8 +1,8 @@
 {% extends 'template.html' %}
 
 {% block body %}
-<h1>Werwolf Online Game</h1>
-<p>Erklärung:<br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
+<h1 id='blood'>Werewolf <br> Online Game</h1>
+<p class='small'>Erklärung:<br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
 
 <form action="{{ url_for('get_data') }}" method="POST">
   <span>Name:</span><br>
@@ -13,6 +13,9 @@
 
 {% endblock %}
 
+{% block script %}
+ <script src="/static/scripts/blood.js"></script>
+{% endblock %}
 <!--
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

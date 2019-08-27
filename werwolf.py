@@ -4,15 +4,18 @@ def createDict():
     with open('no_of_players.txt','r') as f:
         numberOfPlayers = f.read()
         numberOfPlayers = int(numberOfPlayers)
-    wolves = numberOfPlayers // 4
-    witch = numberOfPlayers // 10
-    watcher = numberOfPlayers // 10
+    wolf = numberOfPlayers // 4
+    witch = numberOfPlayers // 12
+    watcher = numberOfPlayers // 12
     if witch == 0 :
         witch = 1
     if watcher == 0 :
         watcher = 1
+    hunter = 0
+    if numberOfPlayers >= 10:
+        hunter = 1
 
-    assign = {'wolves' : wolves, 'witch' : witch, 'watcher' : watcher, 'citizen' : (numberOfPlayers-wolves-watcher-witch)}
+    assign = {'wolf' : wolf, 'witch' : witch, 'watcher' : watcher, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-watcher-witch-hunter)}
     keys = [ key for key in assign]
 
     with open('available.txt', 'w+') as a:
