@@ -1,21 +1,22 @@
 {% extends 'template.html' %}
 
 {% block body %}
-<h1 id='blood'>Werewolf <br> Online Game</h1>
-<br>
-<p class='small'><br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
-<br>
-<br>
-<form action="{{ url_for('get_data') }}" method="POST">
-  <span>Name:</span><br>
+<div class="main">
+  <h1 id='blood'>Werewolf <br> Online Game</h1>
   <br>
-  <input type="text" name="name" placeholder="Bitte Namen eintragen!">
-  <input class='senden' type="submit" value="Senden">
-</form>
-<br>
-
+  <p class='small'><br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
+    <br>
+    <br>
+    <form action="{{ url_for('get_data') }}" method="POST">
+      <span>Name:</span><br>
+      <br>
+      <input type="text" name="name" placeholder="Bitte Namen eintragen!">
+      <input class='senden' type="submit" value="Senden">
+    </form>
+    <br>
+</div>
 {% endblock %}
 
 {% block script %}
- <script src="/static/scripts/blood.js"></script>
+<script src="/static/scripts/blood.js"></script>
 {% endblock %}
