@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for, render_template, session
 #from flask_session import Session
-import requests, logging, werwolf
+import requests, logging, werwolf, datetime
 
 app = Flask(__name__)
 
@@ -27,19 +27,34 @@ def setPlayerNumber():
 @app.route('/spieler', methods = ['GET','POST'])
 def get_data():
     if request.method =='GET':
-        return('Please submit the form')
+        return(render_template('error.html'))
     else:
         if request.method == "POST":
             name = request.form.get("name")
-            #werwolf.game(name)
+            date = datetime.datetime.now()
             file = open('no_of_players.txt')
             num = file.read()
             operator = werwolf.deduct()
-            if operator == 0:
-                return(render_template('error.html'))
-            else:
-                return render_template('user.html', players = num, name = name, operator = operator)
+            try:
+                if operator == 0:
+                    code = 'code'
+                    return(render_template('starting.html', code = code))
+                else:
+                    with open('player_log.txt', 'a') as names:
+                        names.write(f'{date}: {name} = {operator}')
+                        names.write('\n')
+                    return render_template('user.html', players = num, name = name, operator = operator)
+            except:
+                return render_template('refresh.html')
 
+@app.route('/hidden', methods = ['GET'])
+def hidden():
+    try:
+        players_log = open('player_log.txt')
+        players_log = players_log.readlines()
+        return(render_template('hidden.html', names = players_log))
+    except:
+        return(404)
 
 
 if __name__ == '__main__':

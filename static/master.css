@@ -8,19 +8,25 @@ body {
   background-color: black;
   color: white;
   font-family: 'Roboto Condensed', sans-serif;
-  width: 15em;
+  width: 80%;
 
 }
 .main {
   position: relative;
-  top: 1em;
+  top: 4em;
   text-align: center;
 }
 
+.wide {
+  margin: 0 !important;
+  padding: 0;
+  width: 100%;
+  background-color: black;
+  color: green;
+}
 .form-div {
   margin-top: 5em;
 }
-
 .name {
   color: red;
 }
@@ -33,8 +39,12 @@ body {
   text-align: inherit;
   padding: 1em
 }
+
+.senden {color:white; background: black; border: none; padding: 2px;   font-family: 'Roboto Condensed', sans-serif;}
+/*.senden:hover {color:black; background: white; border: none; padding: 2px}*/
+
 #blood {
- transition: 2s; 
+ transition: 2s;
 }
 a {
   text-decoration: none;
@@ -42,18 +52,19 @@ a {
 }
 
 footer{
-
-  display: block;
+  width: 100%;
   text-align: center;
   position: fixed;
+  left: 0;
   bottom: 3em;
 }
+
 footer a {
-  margin-right: 1em;
+  display: inline-block;
+  margin-right: 2em;
 }
 
 footer a:hover {
-  margin-right: 1em;
   color: black;
   background-color: white;
 }

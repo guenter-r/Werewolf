@@ -6,16 +6,19 @@ def createDict():
         numberOfPlayers = int(numberOfPlayers)
     wolf = numberOfPlayers // 4
     witch = numberOfPlayers // 12
-    watcher = numberOfPlayers // 12
+    clairvoyant = numberOfPlayers // 12
     if witch == 0 :
         witch = 1
-    if watcher == 0 :
-        watcher = 1
+    if clairvoyant == 0 :
+        clairvoyant = 1
     hunter = 0
     if numberOfPlayers >= 10:
         hunter = 1
 
-    assign = {'wolf' : wolf, 'witch' : witch, 'watcher' : watcher, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-watcher-witch-hunter)}
+    if hunter > 0:
+        assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch-hunter)}
+    else:
+        assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch)}
     keys = [ key for key in assign]
 
     with open('available.txt', 'w+') as a:
@@ -29,6 +32,8 @@ def deduct():
         #print(type(assign))
         keys = [ key for key in assign ]
 
+    if sum(assign.values()) == 0:
+        return(0)
 
     def assignment():
         while sum(assign.values()) >=0:
@@ -41,8 +46,6 @@ def deduct():
             else:
                 num = random.randint(0,len(assign)-1)
                 assignment()
-    if sum(assign.values()) == 0:
-        return(0)
     ind = assignment()
     print(assign)
     with open('available.txt', 'w+') as b:

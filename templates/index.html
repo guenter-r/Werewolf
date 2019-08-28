@@ -2,12 +2,15 @@
 
 {% block body %}
 <h1 id='blood'>Werewolf <br> Online Game</h1>
-<p class='small'>Erklärung:<br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
-
+<br>
+<p class='small'><br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
+<br>
+<br>
 <form action="{{ url_for('get_data') }}" method="POST">
   <span>Name:</span><br>
+  <br>
   <input type="text" name="name" placeholder="Bitte Namen eintragen!">
-  <input type="submit" value="Senden">
+  <input class='senden' type="submit" value="Senden">
 </form>
 <br>
 
@@ -16,33 +19,3 @@
 {% block script %}
  <script src="/static/scripts/blood.js"></script>
 {% endblock %}
-<!--
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../static/master.css">
-    <meta name="theme-color" content="#ffffff">
-    <title></title>
-  </head>
-  <body>
-    <h1>Werwolf Online Game</h1>
-    <p>Erklärung:<br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
-      Im Anschluss warten alle, bis jeder seinen Namen hinterlegt hat.</p>
-      <form action="{{ url_for('get_players') }}" method="post">
-        <span>Number of players:</span><br>
-        <input type="number" value="">
-        <input type="submit" value="Senden">
-      </form>
-
-      <form action="{{ url_for('get_data') }}" method="POST">
-        <span>Name:</span><br>
-      <input type="text" name="name" placeholder="Bitte Namen eintragen!">
-      <input type="submit" value="Senden">
-      <br>
-      {% block name %}{% endblock %}
-
-      <span href={{ url_for('index', variable = a)}}>a</span>
-  </body>
-</html>
--->
