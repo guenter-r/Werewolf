@@ -36,21 +36,22 @@ a {
 }
 
 .footer-main{
-  margin-top: 8em;
+  /*margin-top: 8em;*/
   width: 100%;
   text-align: center;
-  /* position: relative; */
+  position: absolute;
+  bottom: 10px;
   left: 0;
 }
 
 footer a {
   display: inline-block;
-  margin-right: 2em;
+  margin: 0 1em 0 1em;
 }
 @media only screen and (max-width: 350px) {
   footer a {
     display: block;
-    margin-right: 2em;
+    margin:0;
   }
 }
 
