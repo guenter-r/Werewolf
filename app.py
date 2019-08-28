@@ -56,6 +56,16 @@ def hidden():
     except:
         return(404)
 
+@app.route('/hidden/reset', methods = ['GET','POST'])
+def reset():
+    if request.method == 'POST':
+        if request.form['reset_button'] == 'Reset Log':
+            with open('player_log.txt','w+') as f:
+                f.write('*********************\n')
+            return(render_template('index.html'))
+    elif request.method == 'GET':
+        return(render_template('index.html'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
