@@ -11,9 +11,25 @@ body {
   width: 80%;
 
 }
+
+nav {
+  margin-top: 1%;
+  width: 100%;
+  text-align: center;
+}
+nav a {
+  margin: 10px;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: black;
+  background-color: white;
+}
+
 .main {
   /* position: relative; */
-  margin-top: 4em;
+  margin-top: 5%;
   text-align: center;
 }
 
