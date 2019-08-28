@@ -12,32 +12,16 @@ body {
 
 }
 .main {
-  position: relative;
-  top: 4em;
+  /* position: relative; */
+  margin-top: 4em;
   text-align: center;
 }
 
-.wide {
-  margin: 0 !important;
-  padding: 0;
-  width: 100%;
-  background-color: black;
-  color: green;
-}
-.form-div {
-  margin-top: 5em;
-}
 .name {
   color: red;
 }
 .small {
   font-size: 12px
-}
-
-.submit_name {
-  width: 20em;
-  text-align: inherit;
-  padding: 1em
 }
 
 .senden {color:white; background: black; border: none; padding: 2px;   font-family: 'Roboto Condensed', sans-serif;}
@@ -51,17 +35,23 @@ a {
   color: white;
 }
 
-footer{
+.footer-main{
+  margin-top: 8em;
   width: 100%;
   text-align: center;
-  position: fixed;
+  /* position: relative; */
   left: 0;
-  bottom: 3em;
 }
 
 footer a {
   display: inline-block;
   margin-right: 2em;
+}
+@media only screen and (max-width: 350px) {
+  footer a {
+    display: block;
+    margin-right: 2em;
+  }
 }
 
 footer a:hover {

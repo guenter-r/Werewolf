@@ -13,14 +13,15 @@
 <body onload="setTimeout(blood, 2000)">
   {% block body %}{% endblock %}
 
-<footer>
-  <div class="footer-main">
-    <a href="{{ url_for('index') }}">Home</a>
-    <a href="{{ url_for('setup') }}">Setup</a>
-    <a href="https://github.com/iconicious">Made with <img src="https://image.flaticon.com/icons/svg/148/148838.svg" style="width:12px"> </a>
-    {% block script %}{% endblock %}
-  </div>
-  
-</footer>
+  <footer>
+    <div class="footer-main">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('setup') }}">Setup</a>
+      <a href="https://github.com/iconicious">Made with <img src="https://image.flaticon.com/icons/svg/148/148838.svg" style="width:12px"> </a>
+      {% block script %}{% endblock %}
+    </div>
+  </footer>
+
 </body>
+
 </html>
