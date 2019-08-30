@@ -1,13 +1,19 @@
 {% extends 'template.html' %}
 
+{% block active_b %}
+active
+{% endblock %}
+
 {% block body %}
-<div class="main">
+<div class="container-fluid" style="margin-top:30px">
+<div class="alert alert-danger">
+  Das Setup darf nur einmal pro neuer Runde durchgeführt werden!
+</div>
 
-
-<form class='form-div' action="{{ url_for('setPlayerNumber') }}" method="post">
+<form class='form-control-lg' action="{{ url_for('setPlayerNumber') }}" method="post">
   <span>Number of players:</span><br>
   <input type="number" name='num' placeholder="Enter number">
-  <input type="submit" value="Senden">
+  <input class="btn btn-dark" type="submit" value="Senden">
 </form>
 
 </div>

@@ -1,18 +1,14 @@
 {% extends 'template.html' %}
 
-{% block active_a %}
-active
-{% endblock %}
-
 {% block body %}
-<div class="container-fluid" style="margin-top:30px">
+<div class="main col-sm-12">
   <h1 id='blood'>Werewolf <br> Online Game</h1>
   <p class='small'><br>Jeder Spieler trägt seinen Namen ein und drückt auf 'Senden'.<br>
     <br>
-    <form class="form-control-lg" action="{{ url_for('get_data') }}" method="POST">
+    <form action="{{ url_for('get_data') }}" method="POST">
       <span>Name:</span><br>
       <input type="text" name="name" placeholder="Bitte Namen eintragen!">
-      <input class='btn btn-dark' type="submit" value="Senden">
+      <input class='senden' type="submit" value="Senden">
     </form>
     <br>
 </div>
