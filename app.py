@@ -7,10 +7,6 @@ app = Flask(__name__)
 
 @app.route('/', methods = ['GET','POST'])
 def index():
-    with open('no_of_players.txt', 'w+') as file:
-        file.write('0')
-    with open('player_log.txt','w+') as a:
-        a.write('Players to come ... ')
     return render_template('index.html')
 
 
