@@ -11,8 +11,14 @@ active
 </div>
 
 <form class='form-control-lg' action="{{ url_for('setPlayerNumber') }}" method="post">
-  <span>Number of players:</span><br>
-  <input type="number" name='num' placeholder="Enter number">
+  <div class="form-group">
+    <span>Number of players:</span>
+    <input type="number" name='num' placeholder="Enter number">
+  </div>
+  <div class="form-check">
+    <span>Include narrator to random distribution of roles? </span>
+    <input type="checkbox" name="cbx" value="1">
+  </div>
   <input class="btn btn-dark" type="submit" value="Senden">
 </form>
 

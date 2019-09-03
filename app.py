@@ -20,6 +20,12 @@ def setPlayerNumber():
     numberOfPlayers = request.form.get('num')
     with open('no_of_players.txt', 'w+') as file:
         file.write(str(numberOfPlayers))
+    if bool(request.form.get('cbx')) == True:
+        narrator_flag = 1
+    else:
+        narrator_flag = 0
+    with open('narrator_flag.txt', 'w+') as flag:
+        flag.write(str(narrator_flag))
     werwolf.createDict()
     return(render_template('success.html', players = numberOfPlayers))
 
@@ -31,7 +37,7 @@ def get_data():
     else:
         if request.method == "POST":
             name = request.form.get("name")
-            date = datetime.datetime.now()
+            #date = datetime.datetime.now()
             file = open('no_of_players.txt')
             num = file.read()
             operator = werwolf.deduct()
@@ -41,22 +47,23 @@ def get_data():
                     return(render_template('starting.html', code = code))
                 else:
                     with open('player_log.txt', 'a') as names:
-                        names.write(f'{date}: {name} = {operator}')
+                        names.write(f'{name} = {operator}')
+                        #names.write(f'{date}: {name} = {operator}')
                         names.write('\n')
                     return render_template('user.html', players = num, name = name, operator = operator)
             except:
                 return render_template('refresh.html')
 
-@app.route('/hidden', methods = ['GET'])
+@app.route('/narrator', methods = ['GET'])
 def hidden():
     try:
         players_log = open('player_log.txt')
         players_log = players_log.readlines()
-        return(render_template('hidden.html', names = players_log))
+        return(render_template('narrator.html', names = players_log))
     except:
         return(404)
 
-@app.route('/hidden/reset', methods = ['GET','POST'])
+@app.route('/narrator/reset', methods = ['GET','POST'])
 def reset():
     if request.method == 'POST':
         if request.form['reset_button'] == 'Reset Log':

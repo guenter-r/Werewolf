@@ -1,0 +1,37 @@
+{% extends 'template.html' %}
+
+{% block active_c %}
+active
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-5">
+    {% for el in names %}
+      <ul style="list-style:none; text-align:left;">
+          <li><input type="checkbox"><span>  </span>{{ el }}</li>
+      </ul>
+    {% endfor %}
+    </div>
+    <div class="col-sm-7">
+      <p>Story to tell... </p>
+    </div>
+  </div>
+</div>
+
+
+  <div>
+  <form action="{{ url_for('reset') }}" method="POST">
+    <input class='btn btn-dark' type="submit" name="reset_button" value="Reset Log">
+  </form>
+  </div>
+
+
+{% endblock %}
+
+{% block script %}
+<script src="/static/scripts/blood.js"></script>
+{% endblock %}

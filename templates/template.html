@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="apple-touch-icon" sizes="128x128" href="../static/images/wolf_icon.png">
   <link rel="icon" type="image/png" href="../static/images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/master.css">
@@ -24,6 +25,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link {% block active_b %}{% endblock %}" href="{{ url_for('setup') }}">Setup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% block active_c %}{% endblock %}" href="{{ url_for('hidden') }}">Storyteller</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/iconicious">Made with <img src="https://image.flaticon.com/icons/svg/148/148838.svg" style="width:12px"> </a>

@@ -4,6 +4,10 @@ def createDict():
     with open('no_of_players.txt','r') as f:
         numberOfPlayers = f.read()
         numberOfPlayers = int(numberOfPlayers)
+
+    with open('narrator_flag.txt','r') as fl:
+        narrator_flag = bool(fl.read())
+
     wolf = numberOfPlayers // 4
     witch = numberOfPlayers // 12
     clairvoyant = numberOfPlayers // 12
@@ -15,10 +19,16 @@ def createDict():
     if numberOfPlayers >= 10:
         hunter = 1
 
-    if hunter > 0:
-        assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch-hunter)}
+    if narrator_flag == 1:
+        if hunter > 0:
+            assign = {'storyteller' : 1, 'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch-hunter-1)} #narrator = 1
+        else:
+            assign = {'storyteller' : 1, 'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch-1)}
     else:
-        assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch)}
+        if hunter > 0:
+            assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'hunter' : hunter, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch-hunter)}
+        else:
+            assign = {'wolf' : wolf, 'witch' : witch, 'clairvoyant' : clairvoyant, 'citizen' : (numberOfPlayers-wolf-clairvoyant-witch)}
     keys = [ key for key in assign]
 
     with open('available.txt', 'w+') as a:
