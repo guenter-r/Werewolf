@@ -54,7 +54,7 @@ def deduct():
                     del assign[keys[num]]
                 return num
             else:
-                num = random.randint(0,len(assign)-1)
+                #num = random.randint(0,len(assign)-1) # Sinnlos
                 assignment()
     ind = assignment()
     print(assign)
