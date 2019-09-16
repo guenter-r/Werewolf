@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for, render_template, session
 #from flask_session import Session
-import requests, logging, werwolf, datetime
+import requests, logging, werwolf, datetime, re
 
 app = Flask(__name__)
 
@@ -37,6 +37,10 @@ def get_data():
     else:
         if request.method == "POST":
             name = request.form.get("name")
+            name.replace('1','i')
+            name.replace('3','e')
+            if str(re.findall('\s*ivica\s*',name, re.IGNORECASE)[0]).upper() == 'IVICA':
+                name = 'ivo'
             #date = datetime.datetime.now()
             file = open('no_of_players.txt')
             num = file.read()
