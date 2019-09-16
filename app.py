@@ -1,16 +1,12 @@
 from flask import Flask, request, url_for, render_template, session
 #from flask_session import Session
-import requests, logging, werwolf, datetime
+import requests, logging, werwolf, datetime, re
 
 app = Flask(__name__)
 
 
 @app.route('/', methods = ['GET','POST'])
 def index():
-    with open('no_of_players.txt', 'w+') as file:
-        file.write('0')
-    with open('player_log.txt','w+') as a:
-        a.write('Players to come ... ')
     return render_template('index.html')
 
 
@@ -41,6 +37,10 @@ def get_data():
     else:
         if request.method == "POST":
             name = request.form.get("name")
+            name.replace('1','i')
+            name.replace('3','e')
+            if str(re.findall('\s*ivica\s*',name, re.IGNORECASE)[0]).upper() == 'IVICA':
+                name = 'ivo'
             #date = datetime.datetime.now()
             file = open('no_of_players.txt')
             num = file.read()
