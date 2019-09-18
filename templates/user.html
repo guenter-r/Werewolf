@@ -1,5 +1,9 @@
 {% extends 'template.html' %}
 
+{% block active_a %}
+active
+{% endblock %}
+
 {% block body %}
 <div class="container-fluid" style="margin-top:30px">
   <h3>Hi, <span class='name'>{{ name.upper() }}</span></h3>
