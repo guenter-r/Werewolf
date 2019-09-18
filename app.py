@@ -1,6 +1,6 @@
 from flask import Flask, request, url_for, render_template, session
 #from flask_session import Session
-import requests, logging, werwolf, datetime, re
+import requests, logging, werwolf, datetime, re, mail_sender
 
 app = Flask(__name__)
 
@@ -37,10 +37,14 @@ def get_data():
     else:
         if request.method == "POST":
             name = request.form.get("name")
-            name.replace('1','i')
-            name.replace('3','e')
-            if str(re.findall('\s*ivica\s*',name, re.IGNORECASE)[0]).upper() == 'IVICA':
-                name = 'ivo'
+            name = name.replace('1','i')
+            name = name.replace('3','e')
+            name = name.replace('4','a')
+            try:
+                if str(re.findall('\s*ivica\s*',name, re.IGNORECASE)[0]).upper() == 'IVICA':
+                    name = 'ivo'
+            except:
+                pass
             #date = datetime.datetime.now()
             file = open('no_of_players.txt')
             num = file.read()
@@ -76,6 +80,21 @@ def reset():
             return(render_template('index.html'))
     elif request.method == 'GET':
         return(render_template('index.html'))
+
+@app.route('/recommend',methods = ['GET','POST'])
+def recommend():
+    return(render_template('recommend.html'))
+
+@app.route('/recommend/reco_sent', methods = ['GET','POST'])
+def reco_sent():
+    email = request.form.get('reco')
+    with open('mails.txt','a') as mail:
+        mail.write(email)
+        mail.write('\n')
+    mail_sender.notify(email)
+
+    return(render_template('reco_sent.html', email = email))
+
 
 
 if __name__ == '__main__':
