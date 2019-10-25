@@ -9,6 +9,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+'''
+@app.route('/<string:val>', methods = ['GET','POST'])
+def index(val):
+    return render_template('index.html')
+'''
 
 @app.route('/setup', methods = ['GET','POST'])
 def setup():
